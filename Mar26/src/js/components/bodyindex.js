@@ -1,29 +1,22 @@
 import React from 'react';
 export default class BodyIndex extends React.Component{
-
-  //test lifecycle
-  componentWillMount(){
-    console.log("BodyIndex - componentWillMount")
-  }
-
-  componentDidMount(){
-    console.log("BodyIndex - componentDidMount")
-  }
-
-  render(){
-    var userName = 'Wei';
-    var boolInput = false;
-
-    var html = 'Space\u0020 Test';
+constructor() {
+    super();
+    this.state = {
+        username: "Hi",
+        age: 20
+    };
+}
+render() {
+    setTimeout(() => {
+        this.setState({username: "WEI", age : 30});
+    }, 2000);
 
     return (
       // return can only return one element
       <div>
         <h2>This is body</h2>
-        <p>{userName==''? 'Please Log in' : 'User Name: ' + userName}</p>
-        <p><input type='button' value = 'button' disabled={boolInput}/></p>
-        <p>{html}</p>
-        {/*comments*/}
+        <p>{this.state.username} {this.state.age} {this.props.userid} {this.props.username}</p>
       </div>
     )
   }
